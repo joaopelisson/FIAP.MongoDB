@@ -1507,6 +1507,101 @@ db.sensors.deleteMany({
 
 ---
 
+## Scripts Disponíveis
+
+Este projeto inclui **5 scripts JavaScript** prontos para execução no MongoDB Shell. Eles demonstram todas as operações CRUD de forma modular e sequencial.
+
+### 📋 Scripts do Projeto
+
+| # | Script | Descrição | Linhas | Ação |
+|---|--------|-----------|--------|------|
+| 1 | `ecomonitor_setup.js` | Cria banco de dados e 5 collections | 79 | SETUP |
+| 2 | `ecomonitor_create.js` | Insere 60 documentos em lote | 915 | CREATE |
+| 3 | `ecomonitor_read.js` | Executa 24 consultas e agregações | 310 | READ |
+| 4 | `ecomonitor_update.js` | Realiza 10 atualizações com operadores | ~500 | UPDATE |
+| 5 | `ecomonitor_delete.js` | Executa 6 operações de exclusão | 317 | DELETE |
+
+### 🚀 Como Executar
+
+#### Opção 1: Via MongoDB Shell (Recomendado)
+
+```powershell
+# Abrir MongoDB Shell
+mongosh
+
+# Executar os scripts em sequência
+source "ecomonitor_setup.js"
+source "ecomonitor_create.js"
+source "ecomonitor_read.js"
+source "ecomonitor_update.js"
+source "ecomonitor_delete.js"
+```
+
+#### Opção 2: Diretamente pela Linha de Comando
+
+```powershell
+mongosh ecomonitor_setup.js
+mongosh ecomonitor_create.js
+mongosh ecomonitor_read.js
+mongosh ecomonitor_update.js
+mongosh ecomonitor_delete.js
+```
+
+#### Opção 3: Copiar e Colar no MongoDB Shell
+
+1. Abrir `mongosh`
+2. Copiar o conteúdo de cada arquivo `.js`
+3. Colar no shell e pressionar Enter
+
+### 📊 Resumo das Operações
+
+**SETUP** (`ecomonitor_setup.js`)
+- ✅ Cria banco: `ecomonitor_db`
+- ✅ Cria 5 collections: sensors, energy_readings, alerts, sustainability_actions, compliance_reports
+
+**CREATE** (`ecomonitor_create.js`)
+- ✅ Insere 12 sensores IoT
+- ✅ Insere 15 leituras de energia
+- ✅ Insere 12 alertas
+- ✅ Insere 11 ações de sustentabilidade
+- ✅ Insere 10 relatórios de compliance
+- **Total: 60 documentos**
+
+**READ** (`ecomonitor_read.js`)
+- ✅ 24 consultas diferentes
+- ✅ Filtros simples e avançados
+- ✅ Agregações com `$group`, `$sort`, `$match`
+- ✅ Projeções e análises complexas
+
+**UPDATE** (`ecomonitor_update.js`)
+- ✅ 10 operações de atualização
+- ✅ Operadores: `$set`, `$inc`, `$push`, `$unset`
+- ✅ Atualização de subdocumentos
+- ✅ Modificação de arrays
+
+**DELETE** (`ecomonitor_delete.js`)
+- ✅ 6 operações de exclusão
+- ✅ `deleteOne()` para documento único
+- ✅ `deleteMany()` para múltiplos documentos
+- ✅ Filtros com operadores complexos
+- ⚠️ **AVISO**: Este script deleta dados. Use apenas em teste.
+
+### ⚡ Pré-requisitos
+
+- ✅ MongoDB instalado e rodando
+- ✅ MongoDB Shell (mongosh) instalado
+- ✅ Conexão ativa com MongoDB local ou remoto
+
+### 📝 Notas Importantes
+
+1. **Sequência Obrigatória**: Execute os scripts na ordem: Setup -> Create -> Read -> Update -> Delete
+2. **Banco de Dados**: Todos os scripts usam `ecomonitor_db`
+3. **Ambiente**: Recomenda-se usar apenas em ambiente de **desenvolvimento/teste**
+4. **Dados**: Os 60 documentos são **fictícios** para fins educacionais
+5. **Performance**: Os scripts incluem `console.log()` para rastreamento de progresso
+
+---
+
 ## Conclusão
 
 O **EcoMonitor** representa uma solução completa de gestão energética sustentável, leveraging o poder do MongoDB para:
